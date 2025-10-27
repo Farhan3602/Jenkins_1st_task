@@ -8,5 +8,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Farhan3602/Netflix_clone_lite'
             }
         }
+    }
+        stage('Testing') {
+            steps {
+                sshagent(['SecondServer']) {
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "ls"'
+        }
     }        
 }
