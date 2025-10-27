@@ -19,7 +19,9 @@ pipeline {
         }
         stage('Moving'){
             steps{
+                sshagent(['SecondServer']) {
                 sh 'scp -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "sudo mv /home/ubuntu/* /var/www/html/Netflix/" '
+                }
             }
         }
     }
