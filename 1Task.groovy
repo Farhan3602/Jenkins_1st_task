@@ -10,9 +10,9 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@65.2.3.16:/home/ubuntu' 
                 sshagent(['SecondServer']) {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "ls"'
+                sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@65.2.3.16:/home/ubuntu' 
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "pwd"'
                 }
             }        
         }
