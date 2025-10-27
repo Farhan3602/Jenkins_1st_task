@@ -15,4 +15,5 @@ pipeline {
                 sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "ls"'
         }
     }        
+    }
 }
