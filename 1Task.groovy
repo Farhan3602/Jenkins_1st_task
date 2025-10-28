@@ -11,7 +11,7 @@ pipeline {
         stage('Testing') {
             steps {
                 sshagent(['SecondServer']) {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "sudo rm -r /var/www/html/Netflix/" '
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "sudo rm -r /var/www/html/Netflix/*" '
                 sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@52.66.237.163:/home/ubuntu'
                 sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "pwd"'
                 }
