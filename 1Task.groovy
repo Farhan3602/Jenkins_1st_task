@@ -11,16 +11,16 @@ pipeline {
         stage('Testing') {
             steps {
                 sshagent(['SecondServer']) {
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "sudo rm -r /var/www/html/Netflix/" '
-                sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@65.2.3.16:/home/ubuntu'
-                sh 'ssh -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "pwd"'
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "sudo rm -r /var/www/html/Netflix/" '
+                sh 'scp -o StrictHostKeyChecking=no -r * ubuntu@52.66.237.163:/home/ubuntu'
+                sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "pwd"'
                 }
             }        
         }
         stage('Moving'){
             steps{
                 sshagent(['SecondServer']) {
-                sh 'scp -o StrictHostKeyChecking=no ubuntu@65.2.3.16 "sudo mv /home/ubuntu/* /var/www/html/Netflix/" '
+                sh 'scp -o StrictHostKeyChecking=no ubuntu@52.66.237.163 "sudo mv /home/ubuntu/* /var/www/html/Netflix/" '
                 }
             }
         }
